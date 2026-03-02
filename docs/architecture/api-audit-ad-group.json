@@ -1,0 +1,461 @@
+[
+  {
+    "resourceName": "googleAdsFields/ad_group.ad_rotation_mode",
+    "category": "ATTRIBUTE",
+    "dataType": "ENUM",
+    "name": "ad_group.ad_rotation_mode",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.ai_max_ad_group_setting.disable_search_term_matching",
+    "category": "ATTRIBUTE",
+    "dataType": "BOOLEAN",
+    "name": "ad_group.ai_max_ad_group_setting.disable_search_term_matching",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.audience_setting.use_audience_grouped",
+    "category": "ATTRIBUTE",
+    "dataType": "BOOLEAN",
+    "name": "ad_group.audience_setting.use_audience_grouped",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.base_ad_group",
+    "category": "ATTRIBUTE",
+    "dataType": "RESOURCE_NAME",
+    "name": "ad_group.base_ad_group",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.campaign",
+    "category": "ATTRIBUTE",
+    "dataType": "RESOURCE_NAME",
+    "name": "ad_group.campaign",
+    "selectable": true,
+    "filterable": true,
+    "sortable": false
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.cpc_bid_micros",
+    "category": "ATTRIBUTE",
+    "dataType": "INT64",
+    "name": "ad_group.cpc_bid_micros",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.cpm_bid_micros",
+    "category": "ATTRIBUTE",
+    "dataType": "INT64",
+    "name": "ad_group.cpm_bid_micros",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.cpv_bid_micros",
+    "category": "ATTRIBUTE",
+    "dataType": "INT64",
+    "name": "ad_group.cpv_bid_micros",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.demand_gen_ad_group_settings.channel_controls.channel_config",
+    "category": "ATTRIBUTE",
+    "dataType": "ENUM",
+    "name": "ad_group.demand_gen_ad_group_settings.channel_controls.channel_config",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.demand_gen_ad_group_settings.channel_controls.channel_strategy",
+    "category": "ATTRIBUTE",
+    "dataType": "ENUM",
+    "name": "ad_group.demand_gen_ad_group_settings.channel_controls.channel_strategy",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.discover",
+    "category": "ATTRIBUTE",
+    "dataType": "BOOLEAN",
+    "name": "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.discover",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.display",
+    "category": "ATTRIBUTE",
+    "dataType": "BOOLEAN",
+    "name": "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.display",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.gmail",
+    "category": "ATTRIBUTE",
+    "dataType": "BOOLEAN",
+    "name": "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.gmail",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.youtube_in_feed",
+    "category": "ATTRIBUTE",
+    "dataType": "BOOLEAN",
+    "name": "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.youtube_in_feed",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.youtube_in_stream",
+    "category": "ATTRIBUTE",
+    "dataType": "BOOLEAN",
+    "name": "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.youtube_in_stream",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.youtube_shorts",
+    "category": "ATTRIBUTE",
+    "dataType": "BOOLEAN",
+    "name": "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.youtube_shorts",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.display_custom_bid_dimension",
+    "category": "ATTRIBUTE",
+    "dataType": "ENUM",
+    "name": "ad_group.display_custom_bid_dimension",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.effective_cpc_bid_micros",
+    "category": "ATTRIBUTE",
+    "dataType": "INT64",
+    "name": "ad_group.effective_cpc_bid_micros",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.effective_target_cpa_micros",
+    "category": "ATTRIBUTE",
+    "dataType": "INT64",
+    "name": "ad_group.effective_target_cpa_micros",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.effective_target_cpa_source",
+    "category": "ATTRIBUTE",
+    "dataType": "ENUM",
+    "name": "ad_group.effective_target_cpa_source",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.effective_target_cpc",
+    "category": "ATTRIBUTE",
+    "dataType": "INT64",
+    "name": "ad_group.effective_target_cpc",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.effective_target_cpc_source",
+    "category": "ATTRIBUTE",
+    "dataType": "ENUM",
+    "name": "ad_group.effective_target_cpc_source",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.effective_target_roas",
+    "category": "ATTRIBUTE",
+    "dataType": "DOUBLE",
+    "name": "ad_group.effective_target_roas",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.effective_target_roas_source",
+    "category": "ATTRIBUTE",
+    "dataType": "ENUM",
+    "name": "ad_group.effective_target_roas_source",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.exclude_demographic_expansion",
+    "category": "ATTRIBUTE",
+    "dataType": "BOOLEAN",
+    "name": "ad_group.exclude_demographic_expansion",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.excluded_parent_asset_field_types",
+    "category": "ATTRIBUTE",
+    "dataType": "ENUM",
+    "name": "ad_group.excluded_parent_asset_field_types",
+    "selectable": true,
+    "filterable": true,
+    "sortable": false
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.excluded_parent_asset_set_types",
+    "category": "ATTRIBUTE",
+    "dataType": "ENUM",
+    "name": "ad_group.excluded_parent_asset_set_types",
+    "selectable": true,
+    "filterable": true,
+    "sortable": false
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.final_url_suffix",
+    "category": "ATTRIBUTE",
+    "dataType": "STRING",
+    "name": "ad_group.final_url_suffix",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.fixed_cpm_micros",
+    "category": "ATTRIBUTE",
+    "dataType": "INT64",
+    "name": "ad_group.fixed_cpm_micros",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.id",
+    "category": "ATTRIBUTE",
+    "dataType": "INT64",
+    "name": "ad_group.id",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.labels",
+    "category": "ATTRIBUTE",
+    "dataType": "RESOURCE_NAME",
+    "name": "ad_group.labels",
+    "selectable": true,
+    "filterable": true,
+    "sortable": false
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.name",
+    "category": "ATTRIBUTE",
+    "dataType": "STRING",
+    "name": "ad_group.name",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.optimized_targeting_enabled",
+    "category": "ATTRIBUTE",
+    "dataType": "BOOLEAN",
+    "name": "ad_group.optimized_targeting_enabled",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.percent_cpc_bid_micros",
+    "category": "ATTRIBUTE",
+    "dataType": "INT64",
+    "name": "ad_group.percent_cpc_bid_micros",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.primary_status",
+    "category": "ATTRIBUTE",
+    "dataType": "ENUM",
+    "name": "ad_group.primary_status",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.primary_status_reasons",
+    "category": "ATTRIBUTE",
+    "dataType": "ENUM",
+    "name": "ad_group.primary_status_reasons",
+    "selectable": true,
+    "filterable": true,
+    "sortable": false
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.resource_name",
+    "category": "ATTRIBUTE",
+    "dataType": "RESOURCE_NAME",
+    "name": "ad_group.resource_name",
+    "selectable": true,
+    "filterable": true,
+    "sortable": false
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.status",
+    "category": "ATTRIBUTE",
+    "dataType": "ENUM",
+    "name": "ad_group.status",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.target_cpa_micros",
+    "category": "ATTRIBUTE",
+    "dataType": "INT64",
+    "name": "ad_group.target_cpa_micros",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.target_cpc_micros",
+    "category": "ATTRIBUTE",
+    "dataType": "INT64",
+    "name": "ad_group.target_cpc_micros",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.target_cpm_micros",
+    "category": "ATTRIBUTE",
+    "dataType": "INT64",
+    "name": "ad_group.target_cpm_micros",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.target_cpv_micros",
+    "category": "ATTRIBUTE",
+    "dataType": "INT64",
+    "name": "ad_group.target_cpv_micros",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.target_roas",
+    "category": "ATTRIBUTE",
+    "dataType": "DOUBLE",
+    "name": "ad_group.target_roas",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.targeting_setting.target_restrictions",
+    "category": "ATTRIBUTE",
+    "dataType": "MESSAGE",
+    "name": "ad_group.targeting_setting.target_restrictions",
+    "selectable": true,
+    "filterable": false,
+    "sortable": false
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.tracking_url_template",
+    "category": "ATTRIBUTE",
+    "dataType": "STRING",
+    "name": "ad_group.tracking_url_template",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.type",
+    "category": "ATTRIBUTE",
+    "dataType": "ENUM",
+    "name": "ad_group.type",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.url_custom_parameters",
+    "category": "ATTRIBUTE",
+    "dataType": "MESSAGE",
+    "name": "ad_group.url_custom_parameters",
+    "selectable": true,
+    "filterable": false,
+    "sortable": false
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.vertical_ads_format_setting.disable_text_ads",
+    "category": "ATTRIBUTE",
+    "dataType": "BOOLEAN",
+    "name": "ad_group.vertical_ads_format_setting.disable_text_ads",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.vertical_ads_format_setting.enable_booking_links",
+    "category": "ATTRIBUTE",
+    "dataType": "BOOLEAN",
+    "name": "ad_group.vertical_ads_format_setting.enable_booking_links",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.vertical_ads_format_setting.enable_vertical_promotion_ads",
+    "category": "ATTRIBUTE",
+    "dataType": "BOOLEAN",
+    "name": "ad_group.vertical_ads_format_setting.enable_vertical_promotion_ads",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  },
+  {
+    "resourceName": "googleAdsFields/ad_group.video_ad_group_settings.video_ad_sequence.step_id",
+    "category": "ATTRIBUTE",
+    "dataType": "INT64",
+    "name": "ad_group.video_ad_group_settings.video_ad_sequence.step_id",
+    "selectable": true,
+    "filterable": true,
+    "sortable": true
+  }
+]
