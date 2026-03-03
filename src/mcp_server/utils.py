@@ -141,11 +141,11 @@ class ResourceResolver:
         query = ""
         
         if resource_type == "CAMPAIGN":
-            query = f"SELECT campaign.id, campaign.name FROM campaign WHERE campaign.name = '{name_or_id}' AND campaign.status != 'REMOVED'"
+            query = f"SELECT campaign.id, campaign.name FROM campaign WHERE campaign.name LIKE '%{name_or_id}%' AND campaign.status != 'REMOVED'"
         elif resource_type == "AD_GROUP":
-            query = f"SELECT ad_group.id, ad_group.name FROM ad_group WHERE ad_group.name = '{name_or_id}' AND ad_group.status != 'REMOVED'"
+            query = f"SELECT ad_group.id, ad_group.name FROM ad_group WHERE ad_group.name LIKE '%{name_or_id}%' AND ad_group.status != 'REMOVED'"
         elif resource_type == "USER_LIST":
-            query = f"SELECT user_list.id, user_list.name FROM user_list WHERE user_list.name = '{name_or_id}'"
+            query = f"SELECT user_list.id, user_list.name FROM user_list WHERE user_list.name LIKE '%{name_or_id}%'"
         else:
             return {"error": f"Tipo de recurso '{resource_type}' não suportado para resolução."}
 
