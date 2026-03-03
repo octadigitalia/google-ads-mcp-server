@@ -226,7 +226,7 @@ def get_search_terms(customer_id: str, date_range: str = "LAST_30_DAYS", min_cli
         client = create_google_ads_client()
         service = client.get_service("GoogleAdsService")
         stream = service.search_stream(customer_id=str(customer_id), query=query)
-        results = [proto_to_dict(row) for batch in stream for row in batch.results]
+        results = [dense_proto_to_dict(row) for batch in stream for row in batch.results]
         return format_response(results, customer_id, "get_search_terms")
     except Exception as e:
         return translate_google_ads_error(e)
@@ -300,7 +300,7 @@ def get_campaign_performance(customer_id: str, date_range: str = "LAST_7_DAYS") 
         client = create_google_ads_client()
         service = client.get_service("GoogleAdsService")
         stream = service.search_stream(customer_id=str(customer_id), query=query)
-        results = [proto_to_dict(row) for batch in stream for row in batch.results]
+        results = [dense_proto_to_dict(row) for batch in stream for row in batch.results]
         return format_response(results, customer_id, "get_campaign_performance")
     except Exception as e:
         return translate_google_ads_error(e)
@@ -337,7 +337,7 @@ def search_ads(query: str, customer_id: str = None) -> dict:
             warning = None
 
         stream = service.search_stream(customer_id=str(target_id), query=query)
-        results = [proto_to_dict(row) for batch in stream for row in batch.results]
+        results = [dense_proto_to_dict(row) for batch in stream for row in batch.results]
         
         execution_time = round(time.time() - start_time, 3)
         response = format_response(results, target_id, query, warnings=[warning] if warning else None)
