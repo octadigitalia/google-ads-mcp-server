@@ -29,13 +29,13 @@ Este é um servidor **Model Context Protocol (MCP)** robusto para interagir com 
 Após o setup, você pode iniciar o servidor usando o MCP:
 
 \\\ash
-python src/mcp_server/server.py
+$env:PYTHONPATH="."; python src/mcp_server/server.py
 \\\
 
 Ou usando o **MCP Inspector** para testes visuais:
 
 \\\ash
-npx @modelcontextprotocol/inspector python src/mcp_server/server.py
+npx @modelcontextprotocol/inspector $env:PYTHONPATH="."; python src/mcp_server/server.py
 \\\
 
 ## 📂 Estrutura das Ferramentas (Tools)
