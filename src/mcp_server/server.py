@@ -1,5 +1,11 @@
 import logging
 import time
+import sys
+import os
+
+# Adiciona o diretorio raiz ao sys.path para suportar execucao direta
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
+
 from mcp.server.fastmcp import FastMCP
 from google.api_core import protobuf_helpers
 from src.mcp_server.client import create_google_ads_client
@@ -34,18 +40,11 @@ def get_account_snapshot(customer_id: str, date_range: str = "LAST_30_DAYS") -> 
         total_res = ga_service.search(customer_id=str(customer_id), query=total_query)
         total_data = next(iter(total_res))
         
-        # 2. Distribuição de Status
-        status_query = "SELECT campaign.status, COUNT() FROM campaign GROUP BY campaign.status"
+        # 2. Distribuição de Status (Contagem via Python para evitar erro de COUNT() no GAQL)
+        status_query = "SELECT campaign.status FROM campaign WHERE campaign.status != 'REMOVED'"
         status_res = ga_service.search(customer_id=str(customer_id), query=status_query)
-        status_counts = {}
-        for row in status_res:
-            status_counts[row.campaign.status.name] = row.campaign.resource_name # O COUNT() em GAQL v23 é chato, vamos simplificar
-        
-        # Na verdade, COUNT() em GAQL é limitado. Vamos fazer uma query simples e contar no Python
-        status_query_simple = "SELECT campaign.status FROM campaign WHERE campaign.status != 'REMOVED'"
-        status_res_simple = ga_service.search(customer_id=str(customer_id), query=status_query_simple)
         status_map = {"ENABLED": 0, "PAUSED": 0}
-        for row in status_res_simple:
+        for row in status_res:
             name = row.campaign.status.name
             status_map[name] = status_map.get(name, 0) + 1
 
