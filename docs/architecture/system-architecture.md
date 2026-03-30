@@ -1,0 +1,97 @@
+# Google Ads MCP Server - System Architecture (Brownfield)
+
+## Introduction
+This document captures the CURRENT STATE of the Google Ads MCP Server codebase, including technical debt, workarounds, and real-world patterns. It serves as a reference for AI agents working on enhancements, specifically for Epic 9: Data & Context Mastery.
+
+### Document Scope
+Comprehensive documentation of the entire system, with focus on GAQL execution and resource mutation.
+
+### Change Log
+| Date | Version | Description | Author |
+|------|---------|-------------|--------|
+| 2026-03-02 | 1.0 | Initial brownfield analysis for Epic 9 | Orion (@aios-master) |
+
+## Quick Reference - Key Files and Entry Points
+
+### Critical Files for Understanding the System
+- **Main Entry**: `src/mcp_server/server.py` - FastMCP server initialization and tool definitions.
+- **Configuration**: `src/mcp_server/config.py` - Pydantic settings for API credentials.
+- **Client Initialization**: `src/mcp_server/client.py` - GoogleAdsClient factory.
+- **Utilities**: `src/mcp_server/utils.py` - Proto-to-dict conversion and response formatting.
+- **Credentials**: `google-ads.yaml` (local only), `.env` for secrets.
+
+## High Level Architecture
+
+### Technical Summary
+The system is a Python-based MCP server that wraps the Google Ads Python SDK (v23+). It exposes a set of tools for querying (GAQL) and mutating (Campaigns, Ad Groups, Ads) Google Ads resources.
+
+### Actual Tech Stack
+| Category | Technology | Version | Notes |
+|----------|------------|---------|--------|
+| Runtime | Python | 3.10+ | Uses `.venv` for isolation. |
+| Protocol | MCP | 1.0.0 | via `mcp` Python SDK. |
+| Google Ads SDK| `google-ads` | >=23.0.0 | Proto-plus enabled by default. |
+| Validation | `pydantic` | >=2.0.0 | Used in `config.py`. |
+| Testing | `pytest` | >=9.0.0 | Integration tests dominant. |
+
+### Repository Structure Reality Check
+- **Type**: Single Server (Python)
+- **Package Manager**: `pip` (via `requirements.txt`)
+- **Notable**: Contains reference scripts in root (`add_campaigns_ref.py`, etc.) that are not part of the core server but serve as implementation guides.
+
+## Source Tree and Module Organization
+
+### Project Structure (Actual)
+```text
+google-ads-mcp-server/
+├── src/
+│   └── mcp_server/
+│       ├── server.py      # FastMCP Tool Definitions (The "Brain")
+│       ├── client.py      # SDK Client Setup
+│       ├── config.py      # Settings & Env handling
+│       ├── utils.py       # Proto conversion & formatting
+│       └── __init__.py
+├── tests/
+│   ├── integration/       # Heavy focus on real API tests
+│   └── unit/              # Minimal unit tests (config only)
+├── docs/
+│   ├── architecture/      # Standards & Specs
+│   ├── stories/           # Epics and Story tracking
+│   └── PROJECT_MEMORY.md  # Core project facts & rules
+├── .aios/                 # AIOS Framework metadata
+├── requirements.txt       # Dependencies
+└── google-ads.yaml.example # Template for SDK config
+```
+
+### Key Modules and Their Purpose
+- **Server (`server.py`)**: Defines all `@mcp.tool()` entry points. Uses `FastMCP` for automatic schema generation.
+- **Client (`client.py`)**: Centralizes `GoogleAdsClient` creation. Important: Handles the `login_customer_id` (MCC) logic.
+- **Utils (`utils.py`)**: `proto_to_dict` is critical for converting complex Proto-plus objects into clean JSON for LLMs. Uses `MessageToDict` with specific flags for Enums and Field Presence.
+
+## Technical Debt and Known Issues
+
+### Critical Technical Debt
+1. **Linter Missing**: Story 9.4 is currently in draft. The server executes GAQL queries without pre-validation, leading to raw API errors when fields are invalid.
+2. **Setup Friction**: Authentication requires manual editing of `google-ads.yaml` or `.env`. Story 8.3 (Setup Wizard) is still in progress.
+3. **Hardcoded Defaults**: Some tools (like `get_keyword_historical_metrics`) have hardcoded geo/language constants (Brazil/Portuguese).
+
+### Workarounds and Gotchas
+- **Proto-plus Serialization**: Default values (False, 0) are sometimes stripped during serialization. `utils.proto_to_dict` uses `always_print_fields_with_no_presence=True` to mitigate this for output, but mutations require explicit field masks.
+- **Field Masks**: Mutation tools must use `protobuf_helpers.field_mask` to ensure only intended fields are updated.
+
+## Integration Points and External Dependencies
+
+### External Services
+| Service | Purpose | Integration Type | Key Files |
+|---------|---------|------------------|-----------|
+| Google Ads API | Core Data/Operations | gRPC/REST (SDK) | `src/mcp_server/client.py` |
+
+## Success Criteria for Discovery Phase
+- [x] Technical stack identified (Python, google-ads v23, FastMCP).
+- [x] Repository structure mapped.
+- [x] Key logic entry points located (`server.py`).
+- [x] Technical debt acknowledged (Linter, Setup, Hardcoding).
+- [x] Brownfield documentation created.
+
+---
+*Document generated by AIOS Master Orchestrator during Brownfield Discovery.*

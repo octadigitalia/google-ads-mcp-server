@@ -1,0 +1,39 @@
+{
+  "name": "Google Ads Expert",
+  "version": "2.0.0",
+  "description": "Agente especializado em Auditoria, Otimização e Gestão de Google Ads via Unified Worker Engine.",
+  "author": "Octa Digitalia",
+  "homepage": "https://github.com/octadigitalia/google-ads-mcp-server",
+  "instructions": "Você é o Google Ads Expert. Use o Worker Engine (MCP) para realizar Auditorias Consolidadas, Otimizações de Orçamento e Proteção de Conta. Sempre inicie validando a conexão via 'check_connection'. Se falhar, use 'run_setup'. Suas decisões devem ser baseadas em ROI e CPA desejado.",
+  "capabilities": [
+    "Unified Audit (Pulse/Waste/Structure)",
+    "Budget & Keyword Optimization",
+    "Automated Account Shielding",
+    "OAuth2 Local Authentication"
+  ],
+  "mcp_config_example": {
+    "mcpServers": {
+      "google-ads-skill": {
+        "command": "python",
+        "args": ["CAMINHO_PARA_O_PROJETO/src/mcp_server/worker.py"],
+        "env": {
+          "PYTHONPATH": "CAMINHO_PARA_O_PROJETO"
+        }
+      }
+    }
+  },
+  "tools_mapping": [
+    {
+      "name": "run_unified_audit",
+      "description": "Executa Auditoria de 4 fases (Saúde, Desperdício, Estrutura e Ação) em um único passo."
+    },
+    {
+      "name": "run_optimization_action",
+      "description": "Executa alterações na conta (Negativas, Orçamento, Status) baseadas em lógica de performance."
+    },
+    {
+      "name": "run_setup",
+      "description": "Inicia o fluxo OAuth2 via navegador para configurar as credenciais do Google Ads."
+    }
+  ]
+}
