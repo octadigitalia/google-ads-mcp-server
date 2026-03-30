@@ -10,15 +10,18 @@ Este repositório fornece uma **AI Skill de Elite** para gestão de Google Ads, 
 
 ---
 
-## 🚀 Instalação Rápida (Claude Desktop / Cowork)
+## 🚀 Instalação Rápida
 
 ### 1. Requisitos
 - Python 3.10+
 - `pip install -r requirements.txt`
 
-### 2. Configuração (Claude Desktop)
-Adicione o seguinte ao seu `claude_desktop_config.json`:
-
+### 2. No Claude Desktop (Recomendado para usar no Web)
+O **Claude Web** sincroniza as ferramentas configuradas no seu **Claude Desktop**. Para usar na Web:
+1. Abra o arquivo `claude_desktop_config.json`:
+   - No Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+   - No Mac: `~/Library/Application Support/Claude/claude_desktop_config.json`
+2. Adicione a Skill:
 ```json
 {
   "mcpServers": {
@@ -32,12 +35,19 @@ Adicione o seguinte ao seu `claude_desktop_config.json`:
   }
 }
 ```
+3. Reinicie o Claude Desktop.
+4. **Para usar no Claude.ai (Web)**: Certifique-se de que o Claude Desktop esteja rodando. Usuários Pro/Team verão o ícone de martelo (Tools) habilitado na Web, permitindo usar a Skill de qualquer lugar!
 
-### 3. Primeira Execução e Autenticação
-Ao iniciar um chat no Claude, peça para a Skill rodar o setup:
-> "Rode a Skill Google Ads Expert e inicie o `run_setup`."
+---
 
-O Worker abrirá o seu navegador automaticamente para autorização do Google Ads.
+## 🧠 Como usar a Skill (Primeiros Passos)
+Após configurar, inicie um chat e diga:
+> "Ative a Skill Google Ads Expert e rode o `run_setup`."
+
+O sistema abrirá o seu navegador para você autorizar o acesso à sua conta. Depois disso, você pode dar comandos como:
+- *"Faça uma auditoria completa na minha conta 123-456-7890"*
+- *"Quais termos de pesquisa estão desperdiçando dinheiro?"*
+- *"Aumente o orçamento da campanha X em 20%"*
 
 ---
 
