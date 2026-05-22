@@ -1,7 +1,7 @@
 {
   "name": "google-ads-expert-skill",
-  "version": "2.0.0",
-  "description": "Installer for Google Ads Expert AI Skill",
+  "version": "4.0.0",
+  "description": "Google Ads Expert MCP Server — 77 tools, 5 skills especializadas",
   "main": "install.py",
   "bin": {
     "install-google-ads-skill": "install.py"

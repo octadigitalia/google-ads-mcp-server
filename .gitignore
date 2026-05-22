@@ -156,3 +156,27 @@ google-ads.yaml
 client_secrets.json
 authenticate_in_desktop_application.py
 generate_user_credentials.py
+
+# Generated skill packages
+*.zip
+
+# Campaign action logs (private per-account data)
+campaign-log/*.md
+!campaign-log/.gitkeep
+
+# AIOS Framework (development tooling — not part of the MCP server)
+.aios/
+.aios-core/
+.agent/
+.antigravity/
+.claude/
+.codex/
+.cursor/
+.gemini/
+squads/
+agents/
+docs/stories/
+tests/integration/
+tests/unit/
+package-lock.json
+node_modules/

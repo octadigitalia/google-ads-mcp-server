@@ -1,39 +1,62 @@
 {
   "name": "Google Ads Expert",
-  "version": "2.0.0",
-  "description": "Agente especializado em Auditoria, Otimização e Gestão de Google Ads via Unified Worker Engine.",
+  "version": "4.0.0",
+  "description": "Gestor de Tráfego Sênior com acesso a 77 tools da Google Ads API. Auditoria completa, gestão de campanhas, pesquisa de keywords, otimização e estratégias especializadas.",
   "author": "Octa Digitalia",
   "homepage": "https://github.com/octadigitalia/google-ads-mcp-server",
-  "instructions": "Você é o Google Ads Expert. Use o Worker Engine (MCP) para realizar Auditorias Consolidadas, Otimizações de Orçamento e Proteção de Conta. Sempre inicie validando a conexão via 'check_connection'. Se falhar, use 'run_setup'. Suas decisões devem ser baseadas em ROI e CPA desejado.",
-  "capabilities": [
-    "Unified Audit (Pulse/Waste/Structure)",
-    "Budget & Keyword Optimization",
-    "Automated Account Shielding",
-    "OAuth2 Local Authentication"
+  "skills": [
+    {
+      "file": "google-ads-expert.md",
+      "use_case": "Gestão geral — diagnóstico, auditoria completa, arsenal de 77 tools"
+    },
+    {
+      "file": "growth-marketing.md",
+      "use_case": "Growth Marketing — escala de negócios, CAC/LTV, ICE Score, alocação de budget"
+    },
+    {
+      "file": "launch-formula.md",
+      "use_case": "Fórmula de Lançamento — PLF, pré-lançamento, carrinho aberto/fechado"
+    },
+    {
+      "file": "low-ticket.md",
+      "use_case": "Low Ticket — produtos R$27-197, volume, CPA baixo, PMax"
+    },
+    {
+      "file": "vsl-funnel.md",
+      "use_case": "Funil VSL — vídeo de vendas longo, retargeting em camadas por profundidade"
+    }
   ],
-  "mcp_config_example": {
+  "mcp_server": {
+    "transport": "sse",
+    "url": "http://127.0.0.1:8765/sse",
+    "start_command": "python start_worker.py"
+  },
+  "mcp_config_stdio": {
     "mcpServers": {
-      "google-ads-skill": {
+      "google-ads-expert": {
         "command": "python",
-        "args": ["CAMINHO_PARA_O_PROJETO/src/mcp_server/worker.py"],
+        "args": ["CAMINHO_DO_PROJETO/src/mcp_server/worker.py"],
         "env": {
-          "PYTHONPATH": "CAMINHO_PARA_O_PROJETO"
+          "PYTHONPATH": "CAMINHO_DO_PROJETO"
         }
       }
     }
   },
-  "tools_mapping": [
-    {
-      "name": "run_unified_audit",
-      "description": "Executa Auditoria de 4 fases (Saúde, Desperdício, Estrutura e Ação) em um único passo."
-    },
-    {
-      "name": "run_optimization_action",
-      "description": "Executa alterações na conta (Negativas, Orçamento, Status) baseadas em lógica de performance."
-    },
-    {
-      "name": "run_setup",
-      "description": "Inicia o fluxo OAuth2 via navegador para configurar as credenciais do Google Ads."
-    }
+  "tools_count": 77,
+  "tool_categories": [
+    "Setup & Utilidades (3)",
+    "Relatórios & Auditoria (14)",
+    "Pesquisa de Keywords (4)",
+    "Criação Atômica (5)",
+    "Criação por Conveniência (2)",
+    "Targeting & Segmentação (6)",
+    "Estratégias de Lance (5)",
+    "Otimização / Mutações (12)",
+    "Extensões / Assets (6)",
+    "Conversões (3)",
+    "Organização / Labels (3)",
+    "Audiências (3)",
+    "Features Avançadas (7)",
+    "Faturamento (2)"
   ]
 }

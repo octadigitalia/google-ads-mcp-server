@@ -1,43 +1,34 @@
-# Google Ads AI Skill: Robust Audit Workflow
+# Audit Workflow — Referência Rápida
 
-Este workflow orquestra ferramentas MCP para realizar auditorias profundas de performance e estrutura no Google Ads.
+> Este arquivo é uma referência de consulta. A lógica completa de orquestração está em `google-ads-expert.md`.
 
-## 📋 Pré-requisitos
-- **Google Ads MCP Server** conectado e autenticado.
-- Acesso à conta de cliente desejada (ex: `TecPlaner`).
+## Auditoria Completa (ordem recomendada)
 
----
+```
+1. get_account_snapshot(customer_id)           → saúde geral e top 5 campanhas
+2. get_campaign_performance(LAST_30_DAYS)       → ranking de performance
+3. get_keyword_performance(customer_id)         → Quality Scores e CPC
+4. get_search_terms(customer_id, min_clicks=5)  → desperdício
+5. get_auction_insights(customer_id)            → posição vs concorrentes
+6. get_device_performance(customer_id)          → mobile vs desktop
+7. get_ad_performance(customer_id)              → força dos RSAs
+8. get_recommendations(customer_id)             → sugestões do Google
+```
 
-## 🚀 O Workflow (4 Fases)
+## Diagnóstico por Sintoma
 
-Sempre que solicitado a "auditar" ou "analisar performance", siga rigorosamente estas fases:
+| Sintoma | Tools para investigar |
+|---------|----------------------|
+| CPA subindo | get_search_terms + get_keyword_performance |
+| ROAS caindo | get_auction_insights + get_device_performance |
+| Impressões caindo | get_keyword_performance (QS) + get_recommendations |
+| Budget esgotando rápido | get_search_terms + get_hourly_performance |
+| Sem conversões | get_landing_page_performance + get_ad_performance |
+| Alta variação dia a dia | get_hourly_performance + get_change_history |
 
-### Fase 1: Pulse (Health Check)
-**Objetivo**: Validar conectividade e extrair o "batimento cardíaco" da conta.
-- **Tools**: `get_campaign_performance` (date_range='LAST_30_DAYS').
-- **Critério de Sucesso**: Identificar top 3 campanhas por gasto e validar o status da conta.
+## Regras Operacionais
 
-### Fase 2: Waste (Leak Detection)
-**Objetivo**: Localizar desperdício imediato em termos de pesquisa ineficientes.
-- **Tools**: `get_search_terms` (min_clicks=5).
-- **Critério de Sucesso**: Gerar lista de termos com cliques significativos mas zero conversões para negativação imediata.
-
-### Fase 3: Structure (Optimization)
-**Objetivo**: Avaliar a qualidade dos anúncios e palavras-chave.
-- **Tools**: `search_ads` (Usar GAQL para Ad Strength e Keyword Status).
-- **Critério de Sucesso**: Identificar RSAs com status 'POOR' ou Keywords 'REJECTED'.
-
-### Fase 4: Action (Correction)
-**Objetivo**: Aplicar as recomendações geradas.
-- **Tools**: `add_negative_keywords`, `set_campaign_budget`.
-- **Critério de Sucesso**: Aplicar as negativas da Fase 2 e ajustar orçamentos ineficientes.
-
----
-
-## 🛡️ Operational Standards
-1. **Name-to-ID Resolution**: Prefira sempre usar o `campaign_name`. O servidor resolverá o ID internamente.
-2. **Ambiguity Handling**: Se houver múltiplas campanhas com o mesmo nome, pare e peça o ID.
-3. **Data Limit**: Respeite o limite de 50 linhas em consultas GAQL para evitar estouro de contexto.
-
----
-*Created by Octa Digitalia (https://github.com/octadigitalia/google-ads-mcp-server)*
+1. **Name-to-ID**: Passe nomes de campanha diretamente — o servidor resolve o ID
+2. **Ambiguidade**: Se houver múltiplas campanhas com o mesmo nome, peça o ID numérico
+3. **Confirmação**: Nunca execute mutações sem mostrar os dados e pedir confirmação
+4. **Log**: Registre toda mutação em `campaign-log/{customer_id}.md`
